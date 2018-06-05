@@ -15,13 +15,13 @@ namespace KeyVaultSample
         /// <summary>
         /// Credentials from the app that has access to the vault
         /// </summary>
-        private static readonly ClientCredential Credential = new ClientCredential("", "");
+        private static readonly ClientCredential Credential = new ClientCredential("<ClientId>", "<AuthenticationKey>");
 
         static void Main(string[] args)
         {
             var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(GetAccessToken));
 
-            var secret = keyVaultClient.GetSecretAsync(vaultUri, "ExamplePassword").Result;
+            var secret = keyVaultClient.GetSecretAsync(vaultUri, "<Secret>").Result;
 
             Console.WriteLine($"Your secret is {secret.Value}");
         }
